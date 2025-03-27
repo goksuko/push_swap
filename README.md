@@ -2,9 +2,9 @@
 
 ## Target
 
-The project is a simple yet highly structured algorithmic challenge: to sort data.
-A set of integer values to be sorted using only 2 stacks, and a set of instructions to manipulate both stacks.
-Your goal? Write a C program called push_swap that calculates and displays the shortest sequence of Push_swap instructions needed to sort the given integers.
+The project is a simple highly structured algorithmic challenge: to sort data.
+A set of integer values to be sorted is given to the C program called push_swap. The program sorts using only 2 stacks and a set of instructions to manipulate both stacks.
+The program calculates and displays the shortest sequence of instructions needed to sort the given integers.
 
 ## Actions
 
@@ -53,6 +53,3 @@ The program can be checked with the provided checker, like this :
 ARG="3 0 9 2 -1"; ./push_swap $ARG | ./checker $ARG
 ```
 
-You can visualize this push_swap algorithm in action with [O-reo's push_swap visualizer](https://github.com/o-reo/push_swap_visualizer):
-
-![Push_swap visualization by mcombeau](https://github.com/mcombeau/push_swap/blob/main/subject/push_swap_visualization.gif)
