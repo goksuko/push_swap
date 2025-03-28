@@ -45,47 +45,63 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 CFLAGS += -g
 
+Reset		=	"\033[0m"
+Green		=	"\033[0;32m"
+Yellow		=	"\033[0;33m"
+Blue		=	"\033[0;34m"
+
 all: $(NAME)
 
 $(NAME): $(FT_PRINTF) $(LIBFT) $(OBJS_DIR) $(OBJS_1) $(OBJS_2)
-	$(CC) $(CFLAGS) $(OBJS_1) $(OBJS_2) $(FT_PRINTF) $(LIBFT) -o $(NAME)
+	@echo ${Blue} Building ${NAME} ${Reset}
+	@$(CC) $(CFLAGS) $(OBJS_1) $(OBJS_2) $(FT_PRINTF) $(LIBFT) -o $(NAME)
+	@echo ${Green} Complete ${Reset}
+	@echo ${Green} 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳 ${Reset}
 
 $(LIBFT):
-	$(MAKE) -C ./Libft
+	@$(MAKE) -C ./Libft
 
 $(FT_PRINTF):
-	$(MAKE) -C ./ft_printf
+	@$(MAKE) -C ./ft_printf
 
 $(OBJS_DIR):
-	mkdir -p $(OBJS_DIR)
+	@mkdir -p $(OBJS_DIR)
 
 $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c
-	$(CC) $(CFLAGS) -c -o $@ $^
+	@$(CC) $(CFLAGS) -c -o $@ $^
 
 bonus: $(BONUS_NAME)
 
 $(BONUS_NAME): $(FT_PRINTF) $(LIBFT) $(OBJS_DIR) $(OBJS_2) $(BONUS_OBJS_DIR) $(BONUS_OBJS)
-	$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS_2) $(FT_PRINTF) $(LIBFT) -o $(BONUS_NAME)
+	@echo ${Blue} Building ${NAME} ${Reset}
+	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS_2) $(FT_PRINTF) $(LIBFT) -o $(BONUS_NAME)
+	@echo ${Green} Complete ${Reset}
+	@echo ${Green} 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳 ${Reset}
+
 
 $(BONUS_OBJS_DIR):
-	mkdir -p $(BONUS_OBJS_DIR)
+	@mkdir -p $(BONUS_OBJS_DIR)
 
 $(BONUS_OBJS_DIR)/%.o:$(BONUS_SRCS_DIR)/%.c
-	$(CC) $(CFLAGS) -c -o $@ $^ -I $(HEAD)
+	@$(CC) $(CFLAGS) -c -o $@ $^ -I $(HEAD)
 
 clean:
-	rm -rf $(OBJS_DIR)
-	$(MAKE) clean -C ./Libft
-	$(MAKE) clean -C ./ft_printf
+	@echo ${Yellow} Deleting ${NAME} ${Reset}
+	@rm -rf $(OBJS_DIR)
+	@$(MAKE) clean -C ./Libft
+	@$(MAKE) clean -C ./ft_printf
+	@echo ${Green} Deleting Complete ${Reset}
 
 fclean:
-	rm -f $(NAME) $(BONUS_NAME)
-	rm -f ./a.out
-	rm -f ./Sources/a.out
-	rm -f ./push_swap
-	rm -rf $(OBJS_DIR)
-	$(MAKE) fclean -C ./Libft
-	$(MAKE) fclean -C ./ft_printf
+	@echo ${Yellow} Deleting ${NAME} ${Reset}
+	@rm -f $(NAME) $(BONUS_NAME)
+	@rm -f ./a.out
+	@rm -f ./Sources/a.out
+	@rm -f ./push_swap
+	@rm -rf $(OBJS_DIR)
+	@$(MAKE) fclean -C ./Libft
+	@$(MAKE) fclean -C ./ft_printf
+	@echo ${Green} Deleting Complete ${Reset}
 
 re: fclean all
 

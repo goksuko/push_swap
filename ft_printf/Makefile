@@ -27,13 +27,19 @@ ARC = ar rcs
 RMV = rm -f
 # forcefully removes the files without asking for confirmation.
 
+Reset		=	"\033[0m"
+Green		=	"\033[0;32m"
+Yellow		=	"\033[0;33m"
+Blue		=	"\033[0;34m"
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(ARC) $(NAME) $(OBJS)
+	@echo ${Blue} Building ${NAME} ${Reset}
+	@$(ARC) $(NAME) $(OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -g -c $< -o $@
+	@$(CC) $(CFLAGS) -g -c $< -o $@
 # % is a wildcard that matches any sequence of characters, 
 # and it is used to create a pattern. 
 # So, %.o means "any target ending with .o".
@@ -47,10 +53,12 @@ $(NAME): $(OBJS)
 # In this context, it represents the source file (%.c).
 
 clean:
-	$(RMV) $(OBJS)
+	@echo ${Yellow} Deleting ${NAME} ${Reset}
+	@$(RMV) $(OBJS)
 
 fclean:clean
-	$(RMV) $(NAME) ./a.out
+	@echo ${Yellow} Deleting ${NAME} ${Reset}
+	@$(RMV) $(NAME) ./a.out
 
 re: fclean all
 

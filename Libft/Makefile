@@ -57,22 +57,30 @@ CFLAGS = -Wall -Wextra -Werror
 
 AR = ar
 
+Reset		=	"\033[0m"
+Green		=	"\033[0;32m"
+Yellow		=	"\033[0;33m"
+Blue		=	"\033[0;34m"
+
 all: $(NAME)
 
 $(NAME): $(OBJS_MAND) 
-	$(AR) rcs $(NAME) $(OBJS_MAND)
+	@echo ${Blue} Building ${NAME} ${Reset}
+	@$(AR) rcs $(NAME) $(OBJS_MAND)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -g -c $< -o $@
+	@$(CC) $(CFLAGS) -g -c $< -o $@
 
 bonus: $(NAME) $(OBJS_BONUS)
-	$(AR) rcs $(NAME) $(OBJS_MAND) $(OBJS_BONUS)
+	@$(AR) rcs $(NAME) $(OBJS_MAND) $(OBJS_BONUS)
 
 clean:
-	rm -f $(OBJS_MAND) $(OBJS_BONUS)
+	@echo ${Yellow} Deleting ${NAME} ${Reset}
+	@rm -f $(OBJS_MAND) $(OBJS_BONUS)
 
 fclean:clean
-	rm -f $(NAME) ./a.out
+	@echo ${Yellow} Deleting ${NAME} ${Reset}
+	@rm -f $(NAME) ./a.out
 
 re: fclean all
 
