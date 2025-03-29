@@ -55,8 +55,10 @@ all: $(NAME)
 $(NAME): $(FT_PRINTF) $(LIBFT) $(OBJS_DIR) $(OBJS_1) $(OBJS_2)
 	@echo ${Blue} Building ${NAME} ${Reset}
 	@$(CC) $(CFLAGS) $(OBJS_1) $(OBJS_2) $(FT_PRINTF) $(LIBFT) -o $(NAME)
-	@echo ${Green} Complete ${Reset}
+	@make bonus --no-print-directory
+	@echo ${Green} Building Complete ${Reset}
 	@echo ${Green} 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳 ${Reset}
+
 
 $(LIBFT):
 	@$(MAKE) --no-print-directory -C ./Libft
@@ -73,11 +75,7 @@ $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c
 bonus: $(BONUS_NAME)
 
 $(BONUS_NAME): $(FT_PRINTF) $(LIBFT) $(OBJS_DIR) $(OBJS_2) $(BONUS_OBJS_DIR) $(BONUS_OBJS)
-	@echo ${Blue} Building ${NAME} ${Reset}
 	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS_2) $(FT_PRINTF) $(LIBFT) -o $(BONUS_NAME)
-	@echo ${Green} Complete ${Reset}
-	@echo ${Green} 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳 ${Reset}
-
 
 $(BONUS_OBJS_DIR):
 	@mkdir -p $(BONUS_OBJS_DIR)

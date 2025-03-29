@@ -6,7 +6,7 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/02 11:31:48 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2025/03/29 17:41:45 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/29 19:22:05 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,6 @@ t_stack	*ps_arguments_to_stack_a(char *string, t_stack **a)
 	nb = (int)ps_string_to_long(string);
 	*a = ps_write_in_stack_a(a, nb);
 	return (*a);
-}
-
-int	ft_char_in_set(char c, char const *set)
-{
-	size_t	i;
-
-	i = 0;
-	while (set[i])
-	{
-		if (set[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
 }
 
 bool	ps_check_if_sorted(t_stack **a)

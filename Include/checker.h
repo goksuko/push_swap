@@ -6,7 +6,7 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/02 11:28:55 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2025/03/29 17:51:27 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/29 19:24:00 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void				ps_reverse_rotate(t_stack **stack, char *str);
 void				ps_swap(t_stack **stack, char *str);
 bool				ps_initial_probs(int argc, char *argv[]);
 char				**ft_split(char const *s, char c);
-void				*free_matrix(char **string);
+void				*free_matrix(char **array);
 bool				ps_check_probs(char **str);
 bool				ps_check_in_array(long *array, long temp);
 bool				ps_check_dupp(char **str);

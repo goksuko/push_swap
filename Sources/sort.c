@@ -6,7 +6,7 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/07 15:50:23 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2024/03/09 14:25:36 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/29 22:56:25 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,24 +115,3 @@ void	do_for_five(t_stack **a, int length)
 	send_edges(a, b, max_a);
 }
 
-// void	ps_sort(t_stack **a)
-// {
-// 	int		length;
-
-// 	length = ps_find_length(a);
-// 	if (length <= 1)
-// 		return ;
-// 	else if (length == 2)
-// 		ps_rotate(a, "a");
-// 	else if (length == 3)
-// 		do_for_three(a);
-// 	else if (length == 4)
-// 		do_for_four(a, length);
-// 	else if (length == 5)
-// 		do_for_five(a, length);
-// 	else
-// 		// do_big_sort(a, median, length);
-// 		// do_radix_sort(a);
-// 		do_new_sort(a, length);
-// 	return ;
-// }

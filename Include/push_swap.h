@@ -6,7 +6,7 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/02 11:28:55 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2025/03/29 17:47:05 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/29 19:24:32 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ bool				ps_big_num(char **str);
 // utils2.c
 
 t_stack				*ps_free_list(t_stack *t_stack);
-void				*free_matrix(char **string);
+void				*free_matrix(char **array);
 void				ps_print_stack(t_stack *a);
 int					ps_find_length(t_stack **a);
 int					ps_write_error(char *str);

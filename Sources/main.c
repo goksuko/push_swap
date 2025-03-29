@@ -6,7 +6,7 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/02 11:31:54 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2025/03/29 17:54:26 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/29 19:44:10 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,60 +67,3 @@ int	main(int argc, char *argv[])
 		free_matrix(args);
 	return (0);
 }
-
-// ./push_swap "1 2 3"
-// ===Printing Stack A BEFORE SORT===
-// Stack 0: 1
-// Stack 1: 2
-// Stack 2: 3
-// ===Printing Stack A AFTER SORT===
-// Stack 0: 1
-// Stack 1: 2
-// Stack 2: 3
-
-// ./push_swap "1 3 2"
-// ===Printing Stack A BEFORE SORT===
-// Stack 0: 1
-// Stack 1: 3
-// Stack 2: 2
-// sa
-// ra
-// ===Printing Stack A AFTER SORT===
-// Stack 0: 1
-// Stack 1: 2
-// Stack 2: 3
-
-// ./push_swap "1 3 2"
-// ===Printing Stack A BEFORE SORT===
-// Stack 0: 1
-// Stack 1: 3
-// Stack 2: 2
-// sa
-// ===Printing Stack A AFTER SA===
-// Stack 0: 3
-// Stack 1: 1
-// Stack 2: 2
-// ra
-// ===Printing Stack A AFTER RA===
-// Stack 0: 1
-// Stack 1: 2
-// Stack 2: 3
-// ===Printing Stack A AFTER SORT===
-// Stack 0: 1
-// Stack 1: 2
-// Stack 2: 3
-
-// time to push back
-// ===Printing Stack A===
-// Stack is empty.
-// ===Printing Stack B===
-// Stack 0: 942
-// Stack 1: 834
-// Stack 2: 585
-// Stack 3: 555
-// Stack 4: 532
-// Stack 5: 529
-// Stack 6: 280
-// Stack 7: 247
-// Stack 8: 156
-// Stack 9: 154

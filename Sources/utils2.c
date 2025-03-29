@@ -6,27 +6,27 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/07 15:44:00 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2025/03/29 17:48:52 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/29 19:23:45 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/push_swap.h"
 
-void	*free_matrix(char **string)
+void	*free_matrix(char **array)
 {
 	int	i;
 
 	i = 0;
-	while (string && string[i])
+	while (array && array[i])
 	{
-		free(string[i]);
-		string[i] = NULL;
+		free(array[i]);
+		array[i] = NULL;
 		i++;
 	}
-	if (string)
+	if (array)
 	{
-		free(string);
-		string = NULL;
+		free(array);
+		array = NULL;
 	}
 	return (NULL);
 }
