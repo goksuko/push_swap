@@ -1,7 +1,5 @@
 ## Push_swap
 
-## Target
-
 The project is a simple highly structured algorithmic challenge: to sort data.
 A set of integer values to be sorted is given to the C program called push_swap. The program sorts using only 2 stacks and a set of instructions to manipulate both stacks.
 The program calculates and displays the shortest sequence of instructions needed to sort stack a with the smallest number at the top.
@@ -26,9 +24,15 @@ The possible instructions are:
  
 * Sorting 3 values: no more than 2 instructions.
 * Sorting 4 values: no more than 7 instructions.
-* Sorting 5 values: no more than 10 instructions.
-* Sorting 100 values: no more than 720 instructions.
-* Sorting 500 values: no more than 6500 instructions.
+* Sorting 5 values: no more than 10 instructions with 9 average.
+* Sorting 100 values: no more than 720 instructions with 610 average.
+* Sorting 500 values: no more than 6500 instructions with 5485 average.
+
+Best known algorithm for big number of values is Radix Sort. In this sort, the values will have an index of their order and the values will be sorted by this indexes. 
+The results for that algorithm:
+* Sorting 100 values with 1084 instructions (if not sorted, always the same number). 
+* Sorting 500 values with 6785 instructions (if not sorted, always the same number).
+Solution is not provided but can be found [in this address](https://github.com/42YerevanProjects/push_swap).
 
 ## Usage
 
