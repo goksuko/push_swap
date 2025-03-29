@@ -1,42 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_main.c                                          :+:    :+:            */
+/*   main.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/02 11:31:54 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2024/05/12 00:14:40 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/29 17:54:26 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/push_swap.h"
-
-// t_stack	*ps_two_arguments(t_stack **a, char *str)
-// {
-// 	char		*temp;
-
-// 	if (!ps_check_digit_or_space(str))
-// 		return (NULL);
-// 	if (!ft_char_in_set(' ', str))
-// 	{
-// 		temp = ft_strtrim(str, "\"");
-// 		if (!ps_check_digit(temp))
-// 			ps_write_error();
-// 		free(temp);
-// 		temp = NULL;
-// 		return (*a);
-// 	}
-// 	else
-// 		*a = ps_one_arg_to_stack_a(str, a);
-// 	if (ps_check_duplicates(a))
-// 	{
-// 		ps_write_error();
-// 		*a = ps_free_list(*a);
-// 		return (NULL);
-// 	}
-// 	return (*a);
-// }
 
 void	ps_take_numbers(t_stack **a, char **args)
 {
@@ -51,14 +25,14 @@ void	ps_take_numbers(t_stack **a, char **args)
 	return ;
 }
 
-bool	ps_check_probs(char **str)
+bool	ps_check_probs(char **args)
 {
-	if (ps_check_non_num(str))
-		return (1);
-	if (ps_big_num(str))
-		return (1);
-	if (ps_check_dupp(str))
-		return (1);
+	if (ps_check_non_num(args))
+		return (ps_write_error(ERROR_NON_NUM));
+	if (ps_big_num(args))
+		return (ps_write_error(ERROR_BIG_NUM));
+	if (ps_check_dupp(args))
+		return (ps_write_error(ERROR_DUPLICATE));
 	return (0);
 }
 
@@ -68,7 +42,7 @@ int	main(int argc, char *argv[])
 	char	**args;
 
 	if (ps_initial_probs(argc, argv))
-		return (1);
+		return (ps_write_error(ERROR_ARGUMENT_COUNT));
 	if (argc == 2)
 		args = ft_split(argv[1], ' ');
 	else
@@ -77,12 +51,15 @@ int	main(int argc, char *argv[])
 	{
 		if (argc == 2)
 			free_matrix(args);
-		ps_write_error();
 		return (1);
 	}
 	a = NULL;
 	ps_take_numbers(&a, args);
-	if (a && !ps_check_if_sorted(&a))
+	if (!a)
+		return (ps_write_error(ERROR_UNDEFINED));
+	if (ps_check_if_sorted(&a))
+		ps_write_error(SORTED);
+	else
 		ps_sort(&a);
 	if (a)
 		a = ps_free_list(a);

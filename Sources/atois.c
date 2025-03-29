@@ -6,7 +6,7 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/06 18:38:01 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2024/02/10 09:39:26 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/29 16:51:19 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ long	ps_atoi(const char *string)
 
 	number = ps_string_to_long(string);
 	if (number > INT_MAX || number < INT_MIN)
-		ps_write_error();
+		ps_write_error(ERROR_BIG_NUM);
 	return (number);
 }
 
@@ -66,7 +66,7 @@ long	ps_atoi_matrix(const char *string, char **array, t_stack **a)
 	{
 		free_matrix(array);
 		*a = ps_free_list(*a);
-		ps_write_error();
+		ps_write_error(ERROR_BIG_NUM);
 	}
 	return (number);
 }

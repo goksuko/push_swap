@@ -6,11 +6,11 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/10 23:47:15 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2024/05/11 23:47:12 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/29 18:02:28 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../../Include/checker.h"
 
 void	ps_take_numbers(t_stack **a, char **args)
 {
@@ -38,8 +38,6 @@ char	*do_operation2(t_stack **a, t_stack **b, char *line)
 		ps_reverse_rotate(a, "");
 		ps_reverse_rotate(b, "");
 	}
-	else
-		ps_write_error();
 	return (get_next_line(0));
 }
 
@@ -78,11 +76,11 @@ void	do_check(t_stack **a, t_stack **b, char *line)
 		free(temp);
 	}
 	if (*b)
-		write(1, "KO\n", 3);
+		write(2, "\033[0;31mKO\033[0m\n", 15);
 	else if (!ps_check_if_sorted(a))
-		write(1, "KO\n", 3);
+		write(2, "\033[0;31mKO\033[0m\n", 15);
 	else
-		write(1, "OK\n", 3);
+		write(1, "\033[0;32mOK\033[0m\n", 15);
 	free(line);
 }
 
@@ -103,25 +101,18 @@ int	main(int argc, char *argv[])
 	{
 		if (argc == 2)
 			free_matrix(args);
-		ps_write_error();
 		return (1);
 	}
 	a = NULL;
 	ps_take_numbers(&a, args);
-	// if (argc < 2)
-	// 	return (0);
-	// a = ps_take_numbers(argc, argv);
-	// b = NULL;
-	// if (!a || ps_check_duplicates(&a))
-	// {
-	// 	a = ps_free_list(a);
-	// 	ps_write_error();
-	// }
+	if (!a)
+	 	return (ps_write_error(ERROR_UNDEFINED));
+	b = NULL;
 	line = get_next_line(0);
 	if (!line && !ps_check_if_sorted(&a))
-		write(1, "KO\n", 3);
+		write(2, "\033[0;31mKO\033[0m\n", 15);
 	else if (!line && ps_check_if_sorted(&a))
-		write(1, "OK\n", 3);
+		write(1, "\033[0;32mOK\033[0m\n", 15);
 	else
 		do_check(&a, &b, line);
 	if (a != NULL)

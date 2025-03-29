@@ -6,7 +6,7 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/02 11:28:55 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2024/05/12 00:51:46 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/29 17:51:27 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define ERROR_ARGUMENT_COUNT	"Please provide numbers to sort.\n"
+# define ERROR_NON_NUM			"Please provide only numbers.\n"
+# define ERROR_DUPLICATE		"Please provide only unique numbers.\n"
+# define ERROR_BIG_NUM			"Please provide numbers between -2147483648 and 2147483647.\n"
+# define ERROR_UNDEFINED		"Undefined error.\n"
+
 typedef struct s_stack
 {
 	int				value;
@@ -29,7 +35,7 @@ typedef struct s_stack
 
 t_stack				*ps_arguments_to_stack_a(char *string, t_stack **a);
 t_stack				*ps_free_list(t_stack *t_stack);
-void				ps_write_error(void);
+int					ps_write_error(char *str);
 int					ps_check_if_sorted(t_stack **a);
 void				ps_take_numbers(t_stack **a, char **args);
 char				*get_next_line(int fd);

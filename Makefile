@@ -5,7 +5,7 @@ FT_PRINTF = ./ft_printf/ft_printf.a
 HEAD = ../Include/push_swap.h
 
 SRCS_1 = \
-			ps_main.c \
+			main.c \
 
 SRCS_2 = \
 			atois.c \
@@ -59,10 +59,10 @@ $(NAME): $(FT_PRINTF) $(LIBFT) $(OBJS_DIR) $(OBJS_1) $(OBJS_2)
 	@echo ${Green} 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳 ${Reset}
 
 $(LIBFT):
-	@$(MAKE) -C ./Libft
+	@$(MAKE) --no-print-directory -C ./Libft
 
 $(FT_PRINTF):
-	@$(MAKE) -C ./ft_printf
+	@$(MAKE) --no-print-directory -C ./ft_printf
 
 $(OBJS_DIR):
 	@mkdir -p $(OBJS_DIR)
@@ -88,8 +88,8 @@ $(BONUS_OBJS_DIR)/%.o:$(BONUS_SRCS_DIR)/%.c
 clean:
 	@echo ${Yellow} Deleting ${NAME} ${Reset}
 	@rm -rf $(OBJS_DIR)
-	@$(MAKE) clean -C ./Libft
-	@$(MAKE) clean -C ./ft_printf
+	@$(MAKE) --no-print-directory clean -C ./Libft
+	@$(MAKE) --no-print-directory clean -C ./ft_printf
 	@echo ${Green} Deleting Complete ${Reset}
 
 fclean:
@@ -99,8 +99,8 @@ fclean:
 	@rm -f ./Sources/a.out
 	@rm -f ./push_swap
 	@rm -rf $(OBJS_DIR)
-	@$(MAKE) fclean -C ./Libft
-	@$(MAKE) fclean -C ./ft_printf
+	@$(MAKE) --no-print-directory fclean -C ./Libft
+	@$(MAKE) --no-print-directory fclean -C ./ft_printf
 	@echo ${Green} Deleting Complete ${Reset}
 
 re: fclean all

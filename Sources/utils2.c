@@ -6,7 +6,7 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/07 15:44:00 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2024/04/05 14:38:41 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/29 17:48:52 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,12 @@ int	ps_find_length(t_stack **a)
 	return (i);
 }
 
-void	ps_write_error(void)
+int	ps_write_error(char *str)
 {
-	write(2, "Error\n", 6);
-	exit(1);
+	write(2, "\033[0;31m", 8);
+	write(2, str, ft_strlen(str));
+	write(2, "\033[0m", 4);
+	return (1);
 }
 
 void	ps_print_stack(t_stack *a)
