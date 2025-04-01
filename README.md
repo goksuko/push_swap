@@ -32,13 +32,13 @@ The possible instructions are:
 
 Best known algorithm for big number of values is Radix Sort. In this sort, the values will have an index of their order and the values will be sorted by this indexes. 
 The results for that algorithm:
-* Sorting 3 values on average 4 instructions.
-* Sorting 4 values on average 10 instructions.
-* Sorting 5 values on average 17 instructions.
-* Sorting 10 values with 51 instructions (if not sorted, always the same number).
-* Sorting 100 values with 1028 instructions (if not sorted, always the same number). 
-* Sorting 500 values with 6760 instructions (if not sorted, always the same number).
-* Sorting 1000 values with 15018 instructions (if not sorted, always the same number).
+* Sorting 3 values: on average 4 instructions.
+* Sorting 4 values: on average 10 instructions.
+* Sorting 5 values: on average 17 instructions.
+* Sorting 10 values: on average 51 instructions.
+* Sorting 100 values: on average 1028 instructions. 
+* Sorting 500 values: on average 6760 instructions.
+* Sorting 1000 values: on average 15018 instructions.
 
 ## Usage
 
