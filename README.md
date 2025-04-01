@@ -28,6 +28,7 @@ The possible instructions are:
 * Sorting 10 values: on average 25 instructions, no more than 30 instructions.
 * Sorting 100 values: on average 610 instructions, no more than 720 instructions.
 * Sorting 500 values: on average 5485 instructions, no more than 6500 instructions.
+* Sorting 1000 values: on average 14618 instructions, no more than 14913 instructions.
 
 Best known algorithm for big number of values is Radix Sort. In this sort, the values will have an index of their order and the values will be sorted by this indexes. 
 The results for that algorithm:
@@ -37,6 +38,7 @@ The results for that algorithm:
 * Sorting 10 values with 51 instructions (if not sorted, always the same number).
 * Sorting 100 values with 1028 instructions (if not sorted, always the same number). 
 * Sorting 500 values with 6760 instructions (if not sorted, always the same number).
+* Sorting 1000 values with 15018 instructions (if not sorted, always the same number).
 
 ## Usage
 
