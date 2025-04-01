@@ -25,11 +25,16 @@ The possible instructions are:
 * Sorting 3 values: on average 2 instructions.
 * Sorting 4 values: on average 7 instructions.
 * Sorting 5 values: on average 9 instructions, no more than 10 instructions.
+* Sorting 10 values: on average 25 instructions, no more than 30 instructions.
 * Sorting 100 values: on average 610 instructions, no more than 720 instructions.
 * Sorting 500 values: on average 5485 instructions, no more than 6500 instructions.
 
 Best known algorithm for big number of values is Radix Sort. In this sort, the values will have an index of their order and the values will be sorted by this indexes. 
 The results for that algorithm:
+* Sorting 3 values on average 4 instructions.
+* Sorting 4 values on average 10 instructions.
+* Sorting 5 values on average 17 instructions.
+* Sorting 10 values with 51 instructions (if not sorted, always the same number).
 * Sorting 100 values with 1028 instructions (if not sorted, always the same number). 
 * Sorting 500 values with 6760 instructions (if not sorted, always the same number).
 
@@ -75,7 +80,7 @@ The program can also be checked with the test document. The numbers that are use
 bash test.sh
 ```
 
-In addition to a random test, the tests below can also be tested:
+In addition to a random test, the tests below can also be used:
 
 **10 random numbers:**
 ```shell
