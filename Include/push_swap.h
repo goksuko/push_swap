@@ -6,7 +6,7 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/02 11:28:55 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2025/03/29 19:24:32 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/04/01 23:16:22 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define ERROR_BIG_NUM			"Please provide numbers between -2147483648 and 2147483647.\n"
 # define ERROR_UNDEFINED		"Undefined error.\n"
 # define SORTED					"Already sorted\n"
+# define ERROR_ALLOCATION		"Memory allocation error.\n"
 
 typedef struct s_stack
 {
@@ -37,11 +38,32 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+typedef struct s_radix
+{
+	int				value;
+	int				index;
+	struct s_radix	*next;
+}					t_radix;
+
 // Libft
 
 char				**ft_split(char const *s, char c);
 int					ft_printf(const char *format, ...);
 size_t				ft_strlen(const char *s);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
+
+// radix.c
+
+int					ps_radix(int argc, char **argv);
+t_radix				*radix_free_list(t_radix *t_radix);
+bool 				radix_check_if_sorted(t_radix **a);
+void 				write_indexes(t_radix **a);
+int 				radix_find_length(t_radix **a);
+void 				radix_sort(t_radix **a);
+
+// main.c
+
+bool	ps_check_probs(char **args);
 
 // utils.c
 
@@ -69,6 +91,8 @@ int					ps_write_error(char *str);
 // oper_push.c
 
 void				ps_push(t_stack **src, t_stack **dest, char *str);
+void				ps_push_writer(char *str);
+
 
 // oper_rotate.c
 

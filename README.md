@@ -22,29 +22,34 @@ The possible instructions are:
 
 ## Algorithm Efficiency
  
-* Sorting 3 values: no more than 2 instructions.
-* Sorting 4 values: no more than 7 instructions.
-* Sorting 5 values: no more than 10 instructions with 9 average.
-* Sorting 100 values: no more than 720 instructions with 610 average.
-* Sorting 500 values: no more than 6500 instructions with 5485 average.
+* Sorting 3 values: on average 2 instructions.
+* Sorting 4 values: on average 7 instructions.
+* Sorting 5 values: on average 9 instructions, no more than 10 instructions.
+* Sorting 100 values: on average 610 instructions, no more than 720 instructions.
+* Sorting 500 values: on average 5485 instructions, no more than 6500 instructions.
 
 Best known algorithm for big number of values is Radix Sort. In this sort, the values will have an index of their order and the values will be sorted by this indexes. 
 The results for that algorithm:
-* Sorting 100 values with 1084 instructions (if not sorted, always the same number). 
-* Sorting 500 values with 6785 instructions (if not sorted, always the same number).
-Solution is not provided but can be found [in this address](https://github.com/42YerevanProjects/push_swap).
+* Sorting 100 values with 1028 instructions (if not sorted, always the same number). 
+* Sorting 500 values with 6760 instructions (if not sorted, always the same number).
 
 ## Usage
 
-Git clone the repository and cd into it. Then use ```make``` to compile.
+In the cloned directory ```make``` command compiles the program.
 
-Then run it with :
+```shell
+git clone https://github.com/goksuko/push_swap
+cd push_swap
+make
+```
+
+The sample implentation:
 
 ```shell
 ./push_swap <numbers>
 ```
 
-The numbers provided can be positive or negative integers. There must not be any duplicates. For example :
+The numbers provided can be positive or negative unique integers. Any duplicates or non valid inputs will return Error.
 
 ```shell
 ./push_swap 9 0 -217 2147483647 -2147483648
@@ -52,15 +57,45 @@ The numbers provided can be positive or negative integers. There must not be any
 
 If the arguments are valid, the program will output the most efficient list of actions to sort the list.
 
-The program can be checked with the checker.
+The program can be checked with the checker. Checker code is provided in the Bonus foder.
 
 ```shell
 ARG="3 0 9 2 -1"; ./push_swap $ARG | ./checker $ARG
 ```
 
-The program can be also be checked with the test document. The numbers that are used in the test will be written to a tested_numbers.txt document. The test generates a random set of numbers (between -2000 and 2000) with the size of random size (between 1 and 1000) and tests the push_swap program with them. It also checks the output of the program with a checker program.
+In addition to the generated algorithm, Radix Sort is also implemented. If the string "radix" typed just after the program name, the program will generate the results with radix sort.
+
+```shell
+./push_swap radix <numbers>
+```
+
+The program can also be checked with the test document. The numbers that are used in the test will be written to a tested_numbers.txt document. The test generates a random set of numbers (between -2000 and 2000) with the size of random size (between 1 and 1000) and tests the push_swap program with them. It also checks the output of the program with a checker program.
 
 ```shell
 bash test.sh
 ```
+
+In addition to a random test, the tests below can also be tested:
+
+**10 random numbers:**
+```shell
+ARG=$(seq 10 | sort -R | tr '\n' ' ') && ./push_swap $ARG
+```
+**100 random numbers:**
+```shell
+ARG=$(seq 100 | sort -R | tr '\n' ' ') && ./push_swap $ARG
+```
+**Number of instructions with 100 random numbers:**
+```shell
+ARG=$(seq 100 | sort -R | tr '\n' ' ') && ./push_swap $ARG | wc -l
+```
+**500 random numbers:**
+```shell
+ARG=$(seq 500 | sort -R | tr '\n' ' ') && ./push_swap $ARG
+```
+**Number of instructions with 500 random numbers:**
+```shell
+ARG=$(seq 500 | sort -R | tr '\n' ' ') && ./push_swap $ARG | wc -l
+```
+
 

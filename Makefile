@@ -19,6 +19,8 @@ SRCS_2 = \
 			new_sort.c \
 			new_sort_utils.c \
 			new_sort_utils2.c \
+			radix.c \
+			radix_utils.c \
 			sort.c \
 			utils.c \
 			utils2.c \

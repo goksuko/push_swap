@@ -6,7 +6,7 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/07 15:44:00 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2025/03/29 19:23:45 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/31 22:34:03 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_stack	*ps_free_list(t_stack *t_stack)
 	{
 		ps_free_list(t_stack->next);
 		free(t_stack);
+		t_stack = NULL;
 	}
 	return (NULL);
 }

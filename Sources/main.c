@@ -6,7 +6,7 @@
 /*   By: akaya-oz <akaya-oz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/02 11:31:54 by akaya-oz      #+#    #+#                 */
-/*   Updated: 2025/03/29 19:44:10 by akaya-oz      ########   odam.nl         */
+/*   Updated: 2025/03/31 22:14:02 by akaya-oz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,14 @@ int	main(int argc, char *argv[])
 
 	if (ps_initial_probs(argc, argv))
 		return (ps_write_error(ERROR_ARGUMENT_COUNT));
+	if (ft_strncmp(argv[1], "radix", 6) == 0)
+		return(ps_radix(argc, argv));
 	if (argc == 2)
+	{
 		args = ft_split(argv[1], ' ');
+		if (args == NULL)
+			return (ps_write_error(ERROR_ALLOCATION));
+	}
 	else
 		args = argv + 1;
 	if (ps_check_probs(args))
@@ -55,8 +61,12 @@ int	main(int argc, char *argv[])
 	}
 	a = NULL;
 	ps_take_numbers(&a, args);
-	if (!a)
-		return (ps_write_error(ERROR_UNDEFINED));
+	if (a == NULL)
+	{
+		if (argc == 2)
+			free_matrix(args);
+		return (ps_write_error(ERROR_ALLOCATION));
+	}
 	if (ps_check_if_sorted(&a))
 		ps_write_error(SORTED);
 	else
